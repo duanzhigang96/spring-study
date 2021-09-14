@@ -10,6 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-Autowired</module>
+        <module>spring-Annotate</module>
+        <module>spring-AppConfig</module>
+        <module>spring-Proxy</module>
     </modules>
 
     <properties>

@@ -6,7 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-AppConfig" />
         <module name="spring-Autowired" />
+        <module name="Annotate" />
+        <module name="spring-Proxy" />
       </profile>
     </annotationProcessing>
   </component>
