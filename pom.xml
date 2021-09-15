@@ -13,6 +13,8 @@
         <module>spring-Annotate</module>
         <module>spring-AppConfig</module>
         <module>spring-Proxy</module>
+        <module>spring-Aop</module>
+        <module>spring-mybatis</module>
     </modules>
 
     <properties>
