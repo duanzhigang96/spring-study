@@ -21,4 +21,14 @@ public class UserMapperImpl implements UserMapper{
     public List<User> selectUser() {
         return (List<User>) sessionTemplate.getMapper(UserMapper.class).selectUser();
     }
+
+    @Override
+    public void addUser(User user) {
+
+    }
+
+    @Override
+    public void deleteUser(int id) {
+
+    }
 }

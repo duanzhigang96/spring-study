@@ -17,7 +17,10 @@ public class MyTest {
     public void test() throws IOException {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper userMapper = context.getBean("userMapper2", UserMapper.class);
+        User user1 = new User(9,"baowendong9");
 
+        userMapper.addUser(user1);
+        userMapper.deleteUser(2);
         for (User user : userMapper.selectUser()) {
             System.out.println(user);
         }
