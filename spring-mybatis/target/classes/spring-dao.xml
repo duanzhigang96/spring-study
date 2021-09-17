@@ -15,7 +15,7 @@
     <!--DataSource:使用Spring的数据源替换mybatis的配置 c3p0 dbcp druid-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://121.196.155.76:3306/spring-test?useSSL=false&amp;"/>
+        <property name="url" value="jdbc:mysql://121.196.155.76:3306/spring-test?useSSL=false&amp;useUnicode=true"/>
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
     </bean>
@@ -30,9 +30,7 @@
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
 
-    <bean id="userMapper" class="com.duan.mapper.UserMapperImpl">
-        <property name="sessionTemplate" ref="sqlSession"/>
-    </bean>
+
 
     <bean id="userMapper2" class="com.duan.mapper.UserMapperImpl2">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>

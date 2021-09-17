@@ -4,6 +4,7 @@ import com.duan.pojo.User;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 public class UserMapperImpl implements UserMapper{
 
@@ -28,7 +29,17 @@ public class UserMapperImpl implements UserMapper{
     }
 
     @Override
+    public void addUser2(Map<String, Object> user) {
+
+    }
+
+    @Override
     public void deleteUser(int id) {
 
+    }
+
+    @Override
+    public List<User> getUserLike(String name) {
+        return null;
     }
 }

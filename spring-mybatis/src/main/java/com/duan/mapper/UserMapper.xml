@@ -3,19 +3,42 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.duan.mapper.UserMapper">
+
+
+    <resultMap id="user" type="user">
+        <result column="id" property="id"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+
     <select id="selectUser" resultType="user">
         select *
         from user;
     </select>
-
+    <!--id是方法名    resultType是sql语句的返回值-->
     <insert id="addUser" parameterType="user">
         insert into user (id, name)
         values (#{id}, #{name});
     </insert>
-
+    <insert id="addUser2" parameterType="map">
+        insert into user (id, name)
+        values (#{userId}, #{userName});
+    </insert>
+    <!--parameterType参数类型-->
     <delete id="deleteUser" parameterType="int">
-        deletes
+        delete
         from user
         where id = #{id};
     </delete>
+    <update id="updateUser" parameterType="user">
+        update user
+        set = name = #{name}
+        where id = #{id};
+    </update>
+
+    <select id="getUserLike" resultType="user">
+        select *
+        from user
+        where name like #{name}
+    </select>
+
 </mapper>
