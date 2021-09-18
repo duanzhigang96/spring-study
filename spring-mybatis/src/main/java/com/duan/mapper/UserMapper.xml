@@ -40,5 +40,10 @@
         from user
         where name like #{name}
     </select>
+    <!--分页查询-->
+    <select id="selectAll" parameterType="map" resultType="user" >
+        select *
+        from user limit #{startIndex},#{pageSize}
+    </select>
 
 </mapper>

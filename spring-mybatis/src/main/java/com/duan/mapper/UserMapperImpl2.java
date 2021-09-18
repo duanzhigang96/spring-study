@@ -31,4 +31,9 @@ public class UserMapperImpl2 extends SqlSessionDaoSupport implements UserMapper 
     public List<User> getUserLike(String name) {
         return getSqlSession().getMapper(UserMapper.class).getUserLike(name);
     }
+
+    @Override
+    public List<User> selectAll(Map<String, Integer> user) {
+        return getSqlSession().getMapper(UserMapper.class).selectAll(user);
+    }
 }

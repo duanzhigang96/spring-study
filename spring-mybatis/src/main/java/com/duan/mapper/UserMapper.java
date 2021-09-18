@@ -15,4 +15,6 @@ public interface UserMapper {
     public void deleteUser(int id);
 
     public List<User> getUserLike(String name);
+
+    public List<User> selectAll(Map<String, Integer> user);
 }

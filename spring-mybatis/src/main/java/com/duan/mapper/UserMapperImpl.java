@@ -42,4 +42,9 @@ public class UserMapperImpl implements UserMapper{
     public List<User> getUserLike(String name) {
         return null;
     }
+
+    @Override
+    public List<User> selectAll(Map<String, Integer> user) {
+        return null;
+    }
 }

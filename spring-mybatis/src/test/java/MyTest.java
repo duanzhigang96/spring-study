@@ -1,16 +1,11 @@
 import com.duan.mapper.UserMapper;
 import com.duan.pojo.User;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,6 +39,7 @@ public class MyTest {
         }
     }
 
+    //模糊查询
     @Test
     public void test3() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
@@ -55,9 +51,20 @@ public class MyTest {
         }
     }
 
+    //分页查询
     @Test
     public void test4() {
-        logger.info("info:hello log4j");
-        logger.debug("dubug:hello debug");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserMapper userMapper = context.getBean("userMapper2", UserMapper.class);
+        HashMap<String, Integer> map = new HashMap<String,Integer>();
+        map.put("startIndex", 1);
+        map.put("pageSize", 2);
+        List<User> users = userMapper.selectAll(map);
+        for (User user : users) {
+            System.out.println(user);
+        }
+
+        //方式二
+        //RowBounds
     }
 }
