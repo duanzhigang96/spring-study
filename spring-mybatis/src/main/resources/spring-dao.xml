@@ -35,6 +35,9 @@
     <bean id="userMapper2" class="com.duan.mapper.UserMapperImpl2">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
+    <bean id="teacherMapper" class="com.duan.mapper.TeacherMapperImpl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
     <!--配置声明式事务-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
@@ -54,7 +57,7 @@
     </tx:advice>
     <!--配置事务切入-->
     <aop:config>
-        <aop:pointcut id="txPointCut1" expression="execution(* com.duan.mapper.UserMapperImpl2.*(..))"/>
+        <aop:pointcut id="txPointCut1" expression="execution(* com.duan.mapper.TeacherMapperImpl.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut1"/>
     </aop:config>
 

@@ -17,4 +17,8 @@ public interface UserMapper {
     public List<User> getUserLike(String name);
 
     public List<User> selectAll(Map<String, Integer> user);
+
+    public List<User> getUser();
+
+    public List<User> getUser2();
 }

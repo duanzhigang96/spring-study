@@ -40,5 +40,41 @@
         from user
         where name like #{name}
     </select>
+    <!--分页查询-->
+    <select id="selectAll" parameterType="map" resultType="user">
+        select *
+        from user limit #{startIndex},#{pageSize}
+    </select>
 
+    <!--多对一复杂查询 方式1-->
+    <select id="getUser" resultMap="UserTeacher">
+        select *
+        from user;
+    </select>
+    <resultMap id="UserTeacher" type="user">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!--复杂的属性,我们需要单独处理,对象:association  集合:collection-->
+        <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+    <select id="getTeacher" resultType="Teacher">
+        select *
+        from teacher
+        where id = #{id};
+    </select>
+
+    <!--多对一复杂查询 方式2-->
+    <select id="getUser2" resultMap="UserTeacher2">
+        select s.id sid, s.name sname, t.name tname
+        from user s,
+             teacher t
+        where s.tid = t.id;
+    </select>
+    <resultMap id="UserTeacher2" type="user">
+        <result property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <association property="teacher" javaType="Teacher">
+            <result property="name" column="tname"/>
+        </association>
+    </resultMap>
 </mapper>
