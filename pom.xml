@@ -15,6 +15,7 @@
         <module>spring-Proxy</module>
         <module>spring-Aop</module>
         <module>spring-mybatis</module>
+        <module>spring-mvc</module>
     </modules>
 
     <properties>
